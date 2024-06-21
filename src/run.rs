@@ -1,5 +1,13 @@
+use rustyline::DefaultEditor;
+
+const HISTORY_FILE_PATH: &str = "./.own_lisp_history.txt";
+
 pub fn repl() -> Result<(), Box<dyn std::error::Error>>  {
-  let mut rl = rustyline::DefaultEditor::new()?;
+  let mut rl = DefaultEditor::new()?;
+
+  if rl.load_history(HISTORY_FILE_PATH).is_err() {
+    println!("No command history found");
+  }
 
   loop {
     let readline = rl.readline(">> ");
