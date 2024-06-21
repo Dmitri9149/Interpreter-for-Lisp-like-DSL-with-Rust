@@ -11,6 +11,21 @@ pub fn repl() -> Result<(), Box<dyn std::error::Error>> {
         println!("No history found");
     }
 
+    println!("To save history of the session , print 'y' + Enter");
+    let rl_question = rl
+      .readline(">> ");
+    let yes = "y".to_string();
+    let mut flag:bool = false;
+    match rl_question {
+      Ok(res) => 
+        if res == yes {
+          println!("Inputs will be saved to history");
+          flag = true;
+        } 
+        else  {println!("Inputes will not be saved to history");},
+      _ => {println!("Inputs will not be saved to history");}
+    }
+
     loop {
         let readline = rl.readline(">> ");
         match readline {
