@@ -6,7 +6,7 @@ pub fn repl() -> Result<(), Box<dyn std::error::Error>>  {
   let mut rl = DefaultEditor::new()?;
 
   if rl.load_history(HISTORY_FILE_PATH).is_err() {
-    println!("No command history found");
+    println!("No history found");
   }
 
   loop {
