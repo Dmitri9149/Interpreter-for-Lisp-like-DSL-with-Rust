@@ -14,7 +14,10 @@ pub fn repl() -> Result<(), Box<dyn std::error::Error>> {
     loop {
         let readline = rl.readline(">> ");
         match readline {
-            Ok(line) => println!("Echo => {}", &line),
+            Ok(line) => {
+              rl.add_history_entry(&line)?;
+              println!("Echo => {}", &line);
+            }
             Err(e) => {
                 println!("Exit, the error => {}", e);
                 break;
