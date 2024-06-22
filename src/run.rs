@@ -12,7 +12,7 @@ pub fn repl() -> Result<(), Box<dyn std::error::Error>> {
     }
     // ask user to save or not history of the session in history file 
     // for future reuse 
-    println!("To save history of the session in file, print 'y' + Enter");
+    println!("To save history of the session to history file, print 'y' + Enter");
     let rl_question = rl
       .readline(">> ");
     let yes = "y".to_string();
@@ -40,6 +40,7 @@ pub fn repl() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
     }
+    if save_to_file  {rl.save_history(HISTORY_FILE_PATH)?};
 
     Ok(())
 }
