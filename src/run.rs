@@ -1,20 +1,22 @@
 use rustyline::DefaultEditor;
 use crate::error::{Error, Result};
-use log::{debug, info, warn};
+use log::{debug, info, warn, error};
+use pretty_env_logger;
 
 const HISTORY_FILE_PATH: &str = "./.own_lisp_history.txt";
 
 pub fn repl() -> Result<()> {
-    println!("Interpreter Version {}", "0.0.0.0.1");
-    println!("Press Ctrl+c or Ctrl+d to Exit\n");
+
+    info!("Interpreter Version {}", "0.0.0.0.1");
+    info!("Press Ctrl+c or Ctrl+d to Exit\n");
 
     let mut rl = DefaultEditor::new()?;
     if rl.load_history(HISTORY_FILE_PATH).is_err() {
-        println!("No history found");
+        info!("No history found");
     }
     // ask user to save or not history of the session in history file 
     // for future reuse 
-    println!("To save history of the session to history file, print 'y' + Enter");
+    info!("To save history of the session to history file, print 'y' + Enter");
     let rl_question = rl
       .readline(">> ");
     let yes = "y".to_string();
@@ -22,11 +24,11 @@ pub fn repl() -> Result<()> {
     match rl_question {
       Ok(res) => 
         if res == yes {
-          println!("Inputs will be saved to history file");
+          info!("Inputs will be saved to history file");
           save_to_file = true;
         } 
-        else  {println!("Inputs will not be saved to history file");},
-      _ => {println!("Inputs will not be saved to history file");}
+        else  {info!("Inputs will not be saved to history file");},
+      _ => {info!("Inputs will not be saved to history file");}
     }
 
     loop {
@@ -51,7 +53,7 @@ pub fn run() -> Result<()> {
 
   pretty_env_logger::init();
 
-  repl();
+  repl()?;
 
   Ok(())
 
