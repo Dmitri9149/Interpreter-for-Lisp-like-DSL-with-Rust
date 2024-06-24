@@ -17,9 +17,11 @@ pub fn repl() -> Result<()> {
     // ask user to save or not history of the session in history file 
     // for future reuse 
     info!("To save history of the session to history file, print 'y' + Enter");
+
     let rl_question = rl
       .readline(">> ");
     let yes = "y".to_string();
+    
     let mut save_to_file:bool = false;
     match rl_question {
       Ok(res) => 
@@ -27,8 +29,10 @@ pub fn repl() -> Result<()> {
           info!("Inputs will be saved to history file");
           save_to_file = true;
         } 
-        else  {info!("Inputs will not be saved to history file");},
-      _ => {info!("Inputs will not be saved to history file");}
+        else  {
+          info!("Inputs will not be saved to history file");
+        }
+      _ => info!("Inputs will not be saved to history file")
     }
 
     loop {
