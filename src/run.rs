@@ -1,8 +1,10 @@
 use rustyline::DefaultEditor;
+use crate::error::{Error, Result};
+use log::{debug, info, warn};
 
 const HISTORY_FILE_PATH: &str = "./.own_lisp_history.txt";
 
-pub fn repl() -> Result<(), Box<dyn std::error::Error>> {
+pub fn repl() -> Result<()> {
     println!("Interpreter Version {}", "0.0.0.0.1");
     println!("Press Ctrl+c or Ctrl+d to Exit\n");
 
@@ -43,4 +45,14 @@ pub fn repl() -> Result<(), Box<dyn std::error::Error>> {
     if save_to_file  {rl.save_history(HISTORY_FILE_PATH)?};
 
     Ok(())
+}
+
+pub fn run() -> Result<()> {
+
+  pretty_env_logger::init();
+
+  repl();
+
+  Ok(())
+
 }
