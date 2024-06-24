@@ -1,8 +1,6 @@
-use own_lisp::run::{repl,run};
-use own_lisp::error;
+use own_lisp::run::run;
 use std::process::exit;
-use log::{debug, info, warn, error};
-use pretty_env_logger;
+
 
 
 fn main() {
