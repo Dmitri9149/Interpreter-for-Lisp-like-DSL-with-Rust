@@ -2,6 +2,7 @@ use rustyline::DefaultEditor;
 use crate::error::{Error, Result};
 use log::{debug, info, warn, error};
 use pretty_env_logger;
+use rustyline::error::ReadlineError;
 
 const HISTORY_FILE_PATH: &str = "./.own_lisp_history.txt";
 
@@ -41,11 +42,20 @@ pub fn repl() -> Result<()> {
             Ok(line) => {
               rl.add_history_entry(&line)?;
               println!("Echo => {}", &line);
+            },
+            Err(ReadlineError::Interrupted) => {
+              info!("CTRL-C");
+              break;
             }
-            Err(e) => {
-                println!("Exit, the error => {}", e);
+            Err(ReadlineError::Eof) => {
+                info!("CTRL-D");
                 break;
-            }
+            },
+            Err(e) => {
+              warn!("Error: {e:?}");
+              break;
+          },
+
         }
     }
     if save_to_file  {rl.save_history(HISTORY_FILE_PATH)?};
