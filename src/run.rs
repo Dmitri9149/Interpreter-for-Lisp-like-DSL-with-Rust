@@ -1,8 +1,9 @@
 use rustyline::DefaultEditor;
 use crate::error::{Error, Result};
 use log::{debug, info, warn, error};
-use pretty_env_logger;
+// use pretty_env_logger;
 use rustyline::error::ReadlineError;
+use env_logger::Env;
 
 const HISTORY_FILE_PATH: &str = "./.own_lisp_history.txt";
 
@@ -65,7 +66,8 @@ pub fn repl() -> Result<()> {
 
 pub fn run() -> Result<()> {
 
-  pretty_env_logger::init();
+  let env = Env::default().default_filter_or("info");
+  env_logger::Builder::from_env(env).init();
 
   repl()?;
 
