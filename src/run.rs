@@ -82,7 +82,7 @@ pub fn run() -> Result<()> {
   let configuration = get_configuration().expect("Failed to read configuration.");
 
   // set the level of Log's 
-  set_var("RUST_LOG", "info");
+  set_var("RUST_LOG", configuration.readline.log_level);
   pretty_env_logger::init();
 
 //  let env = Env::default().default_filter_or("info");

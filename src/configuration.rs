@@ -9,6 +9,7 @@ pub struct ReadlineSettings {
     pub log_level: String,
     pub prompt: String,
     pub version: String,
+    pub save_history: bool
 }
 
 impl ReadlineSettings {

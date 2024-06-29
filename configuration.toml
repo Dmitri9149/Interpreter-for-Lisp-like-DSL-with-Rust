@@ -1,6 +1,7 @@
 history_file ="./.own_lisp_history.txt"
 
 [readline]
-  log_level="info"
+  log_level="info"   # "trace" "debug" "info" "warning" "error" 
   prompt=">>"
   version="0.0.0.0.1"
+  save_history="yes" 
