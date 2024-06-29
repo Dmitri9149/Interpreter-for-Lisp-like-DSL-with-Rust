@@ -28,6 +28,7 @@ pub fn repl() -> Result<()> {
     loop {
         let readline = 
           rl.readline(&configuration.readline.prompt);
+
         match readline {
             Ok(line) => {
               rl.add_history_entry(&line)?;
@@ -45,7 +46,6 @@ pub fn repl() -> Result<()> {
               warn!("Error: {e:?}");
               break;
             },
-
         }
     }
     if configuration.readline.save_history  {rl.save_history(&configuration.history_file)?};
