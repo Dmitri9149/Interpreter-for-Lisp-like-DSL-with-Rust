@@ -7,6 +7,8 @@ pub struct Settings {
 #[derive(serde::Deserialize)]
 pub struct ReadlineSettings {
     pub log_level: String,
+    pub prompt: String,
+    pub version: String,
 }
 
 impl ReadlineSettings {

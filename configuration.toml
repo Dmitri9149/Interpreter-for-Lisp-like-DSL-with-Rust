@@ -1,4 +1,6 @@
-history_file =./.own_lisp_history.txt
+history_file ="./.own_lisp_history.txt"
 
 [readline]
-  log_level = info
+  log_level="info"
+  prompt=">>"
+  version="0.0.0.0.1"
