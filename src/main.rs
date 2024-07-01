@@ -1,7 +1,7 @@
 use own_lisp::run::run;
 use std::process::exit;
 
-use own_lisp::parse;
+use own_lisp::parser::parse;
 
 
 
