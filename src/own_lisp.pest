@@ -1,3 +1,5 @@
+COMMENT = _{ "/*" ~ (!"*/" ~ ANY)* ~ "*/" }
+
 WHITESPACE = _{ (" " | NEWLINE ) }
 
 num = @{ int }
