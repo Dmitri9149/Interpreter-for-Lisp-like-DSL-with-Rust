@@ -1,0 +1,12 @@
+COMMENT = _{ "/*" ~ (!"*/" ~ ANY)* ~ "*/" }
+
+WHITESPACE = _{ (" " | NEWLINE ) }
+
+num = @{ int }
+  int = { ("+" | "-")? ~ digit+ }
+  digit = { '0'..'9' }
+
+expr = { num }
+
+file = { SOI ~ expr ~ EOI }
+
