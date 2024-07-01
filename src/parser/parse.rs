@@ -6,16 +6,16 @@ use pest_derive::Parser;
 pub struct NumberParser;
 
 pub fn simple_examples() {
-    let parse_ok = NumberParser::parse(Rule::num, "-273.15");
+    let parse_ok = NumberParser::parse(Rule::num, "273");
     println!("{:?}", parse_ok);
-    // this is also OK with our (too) simple grammar
-    let parse_ok_a = NumberParser::parse(Rule::expr, "{ 273.-15 }");
-    println!("{:?}", parse_ok_a);
-    // this is also OK with our (too) simple grammar
-    let parse_ok_a = NumberParser::parse(Rule::file, "{ { 273.-15 }}");
-    println!("{:?}", parse_ok_a);
-    // this is not OK
-    let parse_not_a = NumberParser::parse(Rule::num, "this is not a number");
-    println!("{:?}", parse_not_a);
+
+    let parse_ok = NumberParser::parse(Rule::expr, "273.15");
+    println!("{:?}", parse_ok);
+
+    let parse_not_ok = NumberParser::parse(Rule::file, "273.15");
+    println!("{:?}", parse_not_ok);
+
+    let parse_not_ok = NumberParser::parse(Rule::num, "this is not a number");
+    println!("{:?}", parse_not_ok);
     println!("");
 }
