@@ -7,6 +7,6 @@ And there is already "translation" of the tutorial to the Rust:
 
 
 The project is based on the 2 above mentioned projects, because that give the good 'scaffold' for me.      
-So, some part of the code is based on the  [Build your own Lisp with Rust](https://dev.to/deciduously/rust-your-own-lisp-50an).   
+So, part of the code is based on the  [Build your own Lisp with Rust](https://dev.to/deciduously/rust-your-own-lisp-50an).   
 
 The work is is progress. 
