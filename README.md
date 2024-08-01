@@ -1,5 +1,6 @@
-The project has to partly answer the question " How to to inject code to the running Rust program in simple way ?"    
-The Rust interpreter for Lisp has to partly answer the question.    
+The project has to partly answer the question " How to inject code to the running Rust program in simple way ?"    
+The Rust interpreter for Lisp has to partly answer the question.
+The DSL language I am in need is quite 'simple': it transforms Maps to Maps: 'lowers' some resources at some positions and 'rise' the resources at some other positions + while some predicates ('laws of Nature') are to be valid within the transformation.      
 
 There is excellent tutorial how to make [C interpreter for Lisp](https://buildyourownlisp.com/)     
 And there is already good "translation" of the tutorial to the Rust:     
