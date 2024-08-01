@@ -2,7 +2,7 @@ The project has to partly answer the question " How to to inject code to the run
 The Rust interpreter for Lisp has to partly answer the question.    
 
 There is excellent tutorial how to make [C interpreter for Lisp](https://buildyourownlisp.com/)     
-And there is already "translation" of the tutorial to the Rust:     
+And there is already good "translation" of the tutorial to the Rust:     
 [Build your own Lisp with Rust](https://dev.to/deciduously/rust-your-own-lisp-50an)     
 
 
